@@ -22,7 +22,8 @@ export const getTrendingMovies = async ()=>{
 export const getPopularMovies = async(page=1)=>{
     try {
         const res = await Axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
-        console.log(res);
+        console.log(res.data.results);
+        return res.data.results;
         
     } catch (error) {
         console.log(error,"error in fetching Movies");

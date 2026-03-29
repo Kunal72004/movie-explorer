@@ -1,11 +1,25 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import {addToFav,removeFromFav,isFav} from './fav'
 
 const MovieCard = ({ movie }) => {
+  const [fav, setFav] = useState(isFav(movie.id));
+
+  const toogleFav = ()=>{
+    if(fav){
+      removeFromFav(movie.id);
+      toast.info(`${movie.title} remove from Favourits`);
+    }else{
+      addToFav(movie);
+      toast.success(`${movie.title} added to Favourites`)
+    }
+      setFav(!fav);
+
+  }
   return (
     <div className="bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden relative">
-      <button className="absolute top-2 right-2">🧡</button>
+      <button className="absolute top-2 right-2" onClick={toogleFav}>{fav ? "🧡" : "🩶"}</button>
       <img
         className="rounded  w-full h-72 object-cover"
         src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}

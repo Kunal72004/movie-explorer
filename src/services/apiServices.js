@@ -32,3 +32,12 @@ export const getPopularMovies = async(page=1)=>{
 }
 
 //single movie details
+export const getMovieDetails = async (id)=>{
+    try {
+        const res = await Axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`);
+        return res;
+    } catch (error) {
+        console.log(error,"error in fetching Movie detail");
+        
+    }
+}

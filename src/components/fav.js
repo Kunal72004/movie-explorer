@@ -1,3 +1,5 @@
+import { Axios } from "axios";
+
 export const getFav = ()=> JSON.parse(localStorage.getItem("favMovie")) || [];
 
 export const addToFav = (movie) =>{
@@ -15,3 +17,5 @@ export const isFav = (id) =>{
     const favs = getFav();
     return favs.some((m)=> m.id === id);
 }
+
+

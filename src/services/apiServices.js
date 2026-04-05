@@ -22,7 +22,7 @@ export const getTrendingMovies = async ()=>{
 export const getPopularMovies = async(page=1)=>{
     try {
         const res = await Axios.get(`${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`)
-        console.log(res.data.results);
+        // console.log(res.data.results);
         return res.data.results;
         
     } catch (error) {
@@ -35,9 +35,10 @@ export const getPopularMovies = async(page=1)=>{
 export const getMovieDetails = async (id)=>{
     try {
         const res = await Axios.get(`${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US`);
-        return res;
+        console.log(res);
+        
+        return res.data;
     } catch (error) {
         console.log(error,"error in fetching Movie detail");
-        
     }
 }

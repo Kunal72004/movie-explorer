@@ -29,7 +29,7 @@ const MovieCard = ({ movie }) => {
         <h3 className="text-lg font-semibold truncate">{movie.title}</h3>
         <div className="flex justify-between items-center mt-2">
           <span className="bg-yellow-500 px-2 py-1 rounded-md font-bold text-sm">⭐ {movie.vote_average}</span>
-          <Link className="text-blue-600 font-medium"> View Details ➡️</Link>
+          <Link className="text-blue-600 font-medium" to={`/movie-details/${movie.id}`}> View Details ➡️</Link>
         </div>
       </div>
      
